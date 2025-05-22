@@ -6,7 +6,10 @@ def test_registry_user():
     conn = db_connection_handler.get_connection()
     repo = UserRepository(conn)
 
-    username = "barney"
+    username = "john wick"
     password= "123Rocket!"
 
-    repo.registry_user(username, password)
+    user = repo.get_user_by_username(username)
+    print()
+    print(user)
+
