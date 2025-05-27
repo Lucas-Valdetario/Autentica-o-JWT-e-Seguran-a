@@ -1,5 +1,4 @@
 from src.controllers.interfaces.login_creator import LoginCreatorInterface
-from src.views.http_types import http_request
 from src.views.http_types.http_request import HttpRequest
 from src.views.http_types.http_response import HttpResponse
 from .interfaces.view_interface import ViewInterface
@@ -9,8 +8,8 @@ class LoginCreatorView(ViewInterface):
         self.controller = controller
 
     def handle(self, request: HttpRequest) -> HttpResponse:
-        username = http_request.body.get("username")
-        password = http_request.body.get("password")
+        username = request.body.get("username")
+        password = request.body.get("password")
         self.__validate_input(username, password)
 
         response = self.controller.create(username, password)

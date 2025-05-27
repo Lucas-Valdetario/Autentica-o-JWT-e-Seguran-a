@@ -1,9 +1,9 @@
 from src.controllers.interfaces.user_register import UserRegisterInterface
 from src.views.http_types.http_request import HttpRequest
 from src.views.http_types.http_response import HttpResponse
-from .interfaces.view_interface import ViewInterfaces
+from .interfaces.view_interface import ViewInterface
 
-class UserRegisterView(ViewInterfaces):
+class UserRegisterView(ViewInterface):
     def __init__(self, controller: UserRegisterInterface) -> None:
         self.__controller = controller
 

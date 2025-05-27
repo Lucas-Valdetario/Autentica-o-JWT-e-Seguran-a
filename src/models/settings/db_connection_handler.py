@@ -10,6 +10,8 @@ class __DbConnectionHandler:
         self.__conn = sqlite3.connect(self.__connection_string, check_same_thread=False)
         
     def get_connection(self) -> Connection:
+        if self.__conn is None:
+            self.connect()
         return self.__conn
 
 db_connection_handler = __DbConnectionHandler()

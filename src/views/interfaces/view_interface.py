@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
-from src.views.http_types.http_request import HttpRequest
-from src.views.http_types.http_response import HttpResponse
+from typing import Dict
 
-class ViewInterfaces(ABC):
-
+class ViewInterface(ABC):
+    """Interface para as Views"""
+    
     @abstractmethod
-    def handle(self, http_request: HttpRequest) -> HttpResponse:
-        pass
+    def handle(self, http_request: Dict) -> Dict:
+        """Método abstrato para manipulação de requisições"""
+        raise NotImplementedError("Deve implementar o método handle")
